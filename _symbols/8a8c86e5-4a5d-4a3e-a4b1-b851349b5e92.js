@@ -3094,7 +3094,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (166:2) {#if !submitted && !error}
+// (166:2) {#if form.endpoint && !submitted && !error}
 function create_if_block_2(ctx) {
 	let form_1;
 	let label;
@@ -3373,7 +3373,7 @@ function create_fragment(ctx) {
 	const if_blocks = [];
 
 	function select_block_type(ctx, dirty) {
-		if (!/*submitted*/ ctx[4] && !/*error*/ ctx[5]) return 0;
+		if (/*form*/ ctx[0].endpoint && !/*submitted*/ ctx[4] && !/*error*/ ctx[5]) return 0;
 		if (/*submitted*/ ctx[4]) return 1;
 		if (/*error*/ ctx[5]) return 2;
 		return -1;
